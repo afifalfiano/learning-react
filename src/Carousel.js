@@ -9,14 +9,7 @@ class Carousel extends React.Component{
         active: 0
     };
 
-    // Old
-    // constructor(props) {
-    //     super(props);
-
-    //     this.handleIndexClick = this.handleIndexClick.bind(this);
-    // }
-
-    static getDriveStateFromProps({media}) {
+    static getDerivedStateFromProps({media}) {
         let photos = ['http://placecorgi.com/600/600'];
 
         if (media.length) {
@@ -25,17 +18,6 @@ class Carousel extends React.Component{
 
         return {photos};
     }
-
-    // If we use this bellow function it's mean create new context 
-    // if we use this function we must binding on constructor of this.
-    // handleIndexClick(event) {
-    //     this.setState({
-    //         active: +event.target.dataset.index
-    //     })
-    // }
-
-    // and  we can use arrow function bcs they don't create new context which mean this function will be added on Carousel Component.
-    // and for binding this function we don't needed bind on constructor
     handleIndexClick = (index) => {
         this.setState({
             // active: +event.target.dataset.index
